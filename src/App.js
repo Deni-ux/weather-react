@@ -1,16 +1,18 @@
-import React from 'react';
+import React, {useState} from 'react';
+import axios from 'axios';
 
 import SearchEngine from './SearchEngine';
 import Temperature from './Temperature';
-import './App.css';
+import './styles.css';
 
-function App() {
+
+ export default function App() {
   return (
-    <div className="App">
+    <div className="WeatherApp">
       <div class="container">
-      <div class="weather-app">
-        <SearchEngine />
-        <h1>Sydney NSW, Australia</h1>
+        <div class="weather-app">
+          <SearchEngine />
+          <h1>Sydney NSW, Australia</h1>
           <ul>
             <li>Wednesday 22:00</li>
             <li>Partly Cloudy</li>
@@ -34,11 +36,18 @@ function App() {
               </ul>
             </div>
           </div>
-
-        </div></div>
-      
+        </div>
+      </div>
     </div>
   );
 }
 
-export default App;
+ 
+
+  
+
+
+
+  
+
+

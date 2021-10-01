@@ -1,11 +1,12 @@
-import React from "react";
+import React , {useState} from "react";
+import axios from "axios";
 
 import "./styles.css";
 
 export default class SearchEngine extends React.Component {
   render = () => {
     return (
-      <div className="WeatherApp">
+      <div className="SearchEngine">
         <form class="search-form">
           <div class="row">
             <div class="col-9">
