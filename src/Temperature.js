@@ -6,7 +6,7 @@ export default class Temperature extends React.Component {
   render = () => {
     return (
         <div className="Temperature">
-            <div class="float-left">
+           
           <span class="temperature" id="temperature">
             19
           </span>
@@ -20,7 +20,7 @@ export default class Temperature extends React.Component {
             </a>
           </span>
         </div>
-        </div>
+        
     );
 } 
 }

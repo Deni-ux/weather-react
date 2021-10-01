@@ -18,16 +18,17 @@ import './styles.css';
             <li>Partly Cloudy</li>
           </ul>
           <div class="row">
-            <div class="col-6">
-              <div class="clearfix">
+            <div class="col">
+             
                 <img
                   src="https://ssl.gstatic.com/onebox/weather/64/partly_cloudy.png"
                   alt="Cloudy icon"
-                  class="weather-icon float-left"
-                />
-                <Temperature />
-              </div>
-            </div>
+                  class="weather-icon"
+                /> </div>
+                <div class="col">
+                   <Temperature />
+                </div>
+        
             <div class="col-6">
               <ul>
                 <li>Precipitation: 0%</li>
@@ -37,7 +38,15 @@ import './styles.css';
             </div>
           </div>
         </div>
+       <p class="text-center">
+          <a
+            href="https://github.com/Deni-ux/weather-react"
+            class="text-decoration-none opensource "
+            >Open-source</a> code 
+          by <a href="https://github.com/Deni-ux" class="text-decoration-none">Denisa Haka </a> 
+        </p>
       </div>
+      
     </div>
   );
 }
