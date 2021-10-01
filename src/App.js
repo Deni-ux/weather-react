@@ -1,5 +1,5 @@
-import React, {useState} from 'react';
-import axios from 'axios';
+import React from 'react';
+
 
 import SearchEngine from './SearchEngine';
 import Temperature from './Temperature';
