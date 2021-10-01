@@ -1,18 +1,18 @@
 import React , {useState} from "react";
 
-import FormattedDate from "./FormattedDate";
+
+import WeatherInfo from "./WeatherInfo";
 
 import axios from "axios";
 
 import "./Weather.css";
 
 export default function Weather(props){
-//boolean used with a conditional rendering
- 
-
   //create a new state with weather data which is going to be a  whole object - by default an empty one, that is going to set all the info we want
   const [weather, setWeather] = useState({loaded: false})
   //this is an object that has a key false by default
+
+  const [city, setCity] =useState(props.defaultCity);
 function handleResponse(response){
   
   setWeather({
@@ -28,10 +28,31 @@ function handleResponse(response){
   });
 }
 
+function search(){
+  //city
+   const apiKey = "b2694a5d8f39bb351277f910bc5d27c4";
+  
+ const apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+
+axios.get(apiUrl).then(handleResponse);
+}
+
+function handleSubmit(event){
+  event.preventDefault();
+  //search for a city using api call
+  search();
+}
+
+//store the value of the input in a state
+function updateCity(event){
+  setCity(event.target.value);
+}
+
+
 if (weather.loaded) {
    return(
         <div className="Weather">
- <form class="search-form">
+ <form class="search-form" onSubmit={handleSubmit}>
           <div className="row">
             <div className="col-9">
               <input
@@ -40,6 +61,7 @@ if (weather.loaded) {
                 autoFocus="on"
                 autoComplete="off"
                 className="form-control shadow-sm"
+                onChange={updateCity}
               />
             </div>
             <div className="col-3">
@@ -50,55 +72,17 @@ if (weather.loaded) {
               />
             </div>
           </div>
-        </form>
-             <h1>{weather.city}</h1>
-          <ul>
-            <li>
-              <FormattedDate date={weather.date} />
-              </li>
-            <li className="text-capitalize">{weather.description}</li>
-          </ul>
-          <div className="row">
-            <div className="col-6">
-             
-                <img
-                  src={weather.iconUrl}
-                  alt={weather.description}
-                  className=" "
-                />
-                
-                   <span className="temperature" id="temperature">
-           {Math.round(weather.temperature)}
-          </span>
-          <span className="units">
-            <a href="https://" id="celsius-link">
-              °C
-            </a>{" "}
-            |
-            <a href="https://" id="fahrenheit-link">
-              °F
-            </a>
-          </span>
-                 </div>  
-               
-                <div className="col-6">
-              <ul className="ms-5">
-                
-                <li>Humidity: {weather.humidity}%</li>
-                <li>Wind: {Math.round(weather.wind)}km/h</li>
-              </ul>
-            </div>
-        </div>
+        </form> 
+
+        <WeatherInfo data = {weather} />
+        
+          
 </div>
         
     );
 } else {
-  const apiKey = "b2694a5d8f39bb351277f910bc5d27c4";
-  
- const apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${props.defaultCity}&appid=${apiKey}&units=metric`;
-
-axios.get(apiUrl).then(handleResponse);
-
+ 
+search();
 return "Loading..";
 //use a loading spinner
 
