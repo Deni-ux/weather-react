@@ -14,6 +14,7 @@ export default function Weather(props){
 
   const [city, setCity] =useState(props.defaultCity);
 function handleResponse(response){
+  console.log(response.data);
   
   setWeather({
     loaded: true,
@@ -22,8 +23,10 @@ function handleResponse(response){
     wind: response.data.wind.speed,
     date: new Date(response.data.dt * 1000),
     city: response.data.name,
+    country: response.data.sys.country,
     description:response.data.weather[0].description,
-    icon:response.data.weather[0].icon
+    icon:response.data.weather[0].icon,
+    feelsLike: response.data.main.feels_like
     
   });
 }

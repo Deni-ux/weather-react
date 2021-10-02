@@ -38,12 +38,12 @@ li {
   height: 72px;
   width: 72px;
   display: inline-block;
-  margin-right: 10px;
+  
 }
 
 .temperature {
   color: rgb(33, 33, 33);
-  font-size: 72px;
+  font-size: 64px;
   font-weight: 300;
   line-height: 72px;
   
@@ -59,4 +59,8 @@ li {
     text-decoration: none;
     
     color:black;
+}
+
+.units a:hover{
+  color:#ff5200;
 }
