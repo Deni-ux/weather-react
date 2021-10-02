@@ -23,7 +23,7 @@ function handleResponse(response){
     date: new Date(response.data.dt * 1000),
     city: response.data.name,
     description:response.data.weather[0].description,
-    iconUrl:`http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
+    icon:response.data.weather[0].icon
     
   });
 }
@@ -52,7 +52,7 @@ function updateCity(event){
 if (weather.loaded) {
    return(
         <div className="Weather">
- <form class="search-form" onSubmit={handleSubmit}>
+ <form className="search-form" onSubmit={handleSubmit}>
           <div className="row">
             <div className="col-9">
               <input

@@ -21,10 +21,10 @@ import './App.css';
         
        <footer>
          This project was coded by{" "} 
-         <a href="https://github.com/Deni-ux" class="text-decoration-none">Denisa Haka </a> 
+         <a href="https://github.com/Deni-ux" className="text-decoration-none">Denisa Haka </a> 
           {" "}and is {" "} <a
             href="https://github.com/Deni-ux/weather-react"
-            class="text-decoration-none opensource "
+            className="text-decoration-none opensource "
             >open-sourced on GitHub</a>
         </footer>
       </div>
