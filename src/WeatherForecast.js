@@ -26,6 +26,17 @@ export default function WeatherForecast(props){
      }
   //create a new component to maintain each day data ForecastDay
   //to show dat for 5 days need to loop - map()
+
+   function showForecast(){
+       let apiKey="b2694a5d8f39bb351277f910bc5d27c4";
+    
+    let longitude = props.coordinates.lon;
+    let latitude =props.coordinates.lat;
+
+    let apiUrl=`https://api.openweathermap.org/data/2.5/onecall?lat=${latitude}&lon=${longitude}&appid=${apiKey}&units=metric`;
+
+    axios.get(apiUrl).then(handleResponse);
+   }
     if (loaded) {
 
       return (
@@ -53,17 +64,11 @@ export default function WeatherForecast(props){
         </div>
     );
     } else { 
-
-    let apiKey="b2694a5d8f39bb351277f910bc5d27c4";
     
-    let longitude = props.coordinates.lon;
-    let latitude =props.coordinates.lat;
+      showForecast();
+  
 
-    let apiUrl=`https://api.openweathermap.org/data/2.5/onecall?lat=${latitude}&lon=${longitude}&appid=${apiKey}&units=metric`;
-
-    axios.get(apiUrl).then(handleResponse);
-
-    return null;    
+        return null;    
            
         
     }

@@ -5,6 +5,9 @@ import WeatherInfo from "./WeatherInfo";
 import WeatherForecast from "./WeatherForecast";
 
 import axios from "axios";
+import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
+import Loader from "react-loader-spinner";
+
 
 import "./Weather.css";
 
@@ -55,6 +58,7 @@ function updateCity(event){
 }
 
 
+
 if (weather.loaded) {
    return(
         <div className="Weather">
@@ -92,7 +96,17 @@ if (weather.loaded) {
 } else {
  
 search();
-return "Loading..";
+return  ( 
+
+<Loader
+        type="Oval"
+        color="#00bfff"
+        height={200}
+        width={200}
+        timeout={3000} 
+      />
+     
+);
 //use a loading spinner
 
 }
