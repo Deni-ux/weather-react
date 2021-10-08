@@ -97,14 +97,17 @@ if (weather.loaded) {
  
 search();
 return  ( 
-<div className="d-flex justify-content-center">
+<div className="d-flex justify-content-center mt-5">
 <Loader
         type="Oval"
-        color="#00bfff"
-        height={200}
-        width={200}
+        color="#D41E00"
+        height={80}
+        width={80}
         timeout={3000} 
       />
+      <br />
+      <br />
+      <h2 className="text-warning">Hold a sec...</h2>
    </div>  
 );
 //use a loading spinner
