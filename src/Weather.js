@@ -70,15 +70,15 @@ if (weather.loaded) {
                 placeholder="Type a city.."
                 autoFocus="on"
                 autoComplete="off"
-                className="form-control shadow-sm"
+                className="form-control shadow-sm bg-transparent"
                 onChange={updateCity}
               />
             </div>
             <div className="col-3">
               <input
                 type="submit"
-                value="Search"
-                className="form-control btn btn-primary shadow-sm"
+                value="Go"
+                className="form-control btn btn-outline-danger shadow-sm"
               />
             </div>
           </div>
@@ -97,7 +97,7 @@ if (weather.loaded) {
  
 search();
 return  ( 
-
+<div className="d-flex justify-content-center">
 <Loader
         type="Oval"
         color="#00bfff"
@@ -105,7 +105,7 @@ return  (
         width={200}
         timeout={3000} 
       />
-     
+   </div>  
 );
 //use a loading spinner
 
