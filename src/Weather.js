@@ -97,7 +97,7 @@ if (weather.loaded) {
  
 search();
 return  ( 
-<div className="d-flex justify-content-center mt-5">
+<div className="text-center mt-5">
 <Loader
         type="Oval"
         color="#D41E00"
